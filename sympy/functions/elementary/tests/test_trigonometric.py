@@ -859,6 +859,7 @@ def test_asin_series():
     t5 = asin(x).taylor_term(5, x)
     assert t5 == 3*x**5/40
     assert asin(x).taylor_term(7, x, t5, 0) == 5*x**7/112
+    assert asin(x**2 +2*x).taylor_term(4, x) == 2 * x ** 4
 
 
 def test_asin_rewrite():
@@ -929,6 +930,7 @@ def test_acos_series():
     assert acos(x).taylor_term(7, x, t5, 0) == -5*x**7/112
     assert acos(x).taylor_term(0, x) == pi/2
     assert acos(x).taylor_term(2, x) is S.Zero
+    assert acos(x**2 + 2*x).taylor_term(4, x) == -2 * x ** 4
 
 
 def test_acos_rewrite():
